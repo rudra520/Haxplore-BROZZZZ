@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Occamy Field Operations</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Login View -->
+    <div id="login-view" class="view active">
+        <div class="login-container">
+            <div class="brand-header">
+                <div class="logo-icon">O</div>
+                <h1>Occamy</h1>
+                <p>Field Operations Tracking</p>
+            </div>
+
+            <!-- Carousel -->
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide active">
+                        <div class="slide-content">
+                            <div class="icon">📍</div>
+                            <h3>GPS Tracking</h3>
+                            <p>Automatically logs location for every activity.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <div class="icon">📊</div>
+                            <h3>Real-time Analytics</h3>
+                            <p>Admin dashboard with live Bento Grid statistics.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <div class="icon">⚡</div>
+                            <h3>Offline Ready</h3>
+                            <p>Works even in low-connectivity rural areas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-dots"></div>
+            </div>
+
+            <form id="login-form" class="form-card">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="username" required placeholder="admin or distributor1">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="password" required placeholder="admin123 or dist123">
+                </div>
+                <button type="submit" class="btn-primary">Login to System</button>
+                <div id="login-error" class="error-msg"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard View (Admin) -->
+    <div id="admin-view" class="view">
+        <header class="app-header">
+            <div class="breadcrumb">
+                <span>Admin</span> / <span class="active">Dashboard</span>
+            </div>
+            <button onclick="logout()" class="btn-text">Logout</button>
+        </header>
+
+        <main class="container">
+            <h2>Field Operations Overview</h2>
+            
+            <!-- Skeletal Loading State -->
+            <div id="skeleton-loader" class="bento-grid">
+                <div class="bento-card skeleton"></div>
+                <div class="bento-card skeleton"></div>
+                <div class="bento-card skeleton"></div>
+                <div class="bento-card skeleton"></div>
+            </div>
+
+            <!-- Real Content -->
+            <div id="dashboard-content" class="bento-grid hidden">
+                <div class="bento-card stat-card primary-gradient">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-value" id="stat-users">0</div>
+                    <div class="stat-label">Active Field Officers</div>
+                </div>
+                <div class="bento-card stat-card secondary-gradient">
+                    <div class="stat-icon">🤝</div>
+                    <div class="stat-value" id="stat-meetings">0</div>
+                    <div class="stat-label">Meetings Conducted</div>
+                </div>
+                <div class="bento-card stat-card primary-gradient">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-value" id="stat-sales">0</div>
+                    <div class="stat-label">Sales Logged</div>
+                </div>
+                <div class="bento-card stat-card secondary-gradient">
+                    <div class="stat-icon">🎁</div>
+                    <div class="stat-value" id="stat-samples">0</div>
+                    <div class="stat-label">Samples Distributed</div>
+                </div>
+                
+                <!-- Map Placeholder -->
+                <div class="bento-card wide">
+                    <h3>Live Activity Map</h3>
+                    <div id="map-placeholder" class="map-box">
+                        <div class="map-pin" style="top: 30%; left: 20%"></div>
+                        <div class="map-pin" style="top: 60%; left: 70%"></div>
+                        <div class="map-pin active" style="top: 45%; left: 50%"></div>
+                        <p>Map Integration Placeholder<br>Officers: <span id="map-officer-count">0</span> Active</p>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Feed -->
+                <div class="bento-card wide activity-feed">
+                    <h3>Recent Field Activity</h3>
+                    <ul id="activity-list">
+                        <!-- Populated by JS -->
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Distributor View (Mobile Ops) -->
+    <div id="distributor-view" class="view">
+        <header class="app-header">
+            <div class="breadcrumb">
+                <span id="user-greeting">Officer</span> / <span class="active">Operations</span>
+            </div>
+            <button onclick="logout()" class="btn-text">Logout</button>
+        </header>
+
+        <main class="container mobile-pad">
+            
+            <!-- GPS Status -->
+            <div class="gps-card" id="gps-status">
+                <div class="gps-pulse"></div>
+                <span>Locating GPS...</span>
+            </div>
+
+            <div class="action-grid">
+                <button onclick="openModal('meeting')" class="action-btn meeting-btn">
+                    <span class="icon">🤝</span>
+                    <span>Log Meeting</span>
+                </button>
+                <button onclick="openModal('sample')" class="action-btn sample-btn">
+                    <span class="icon">🎁</span>
+                    <span>Sample Dist.</span>
+                </button>
+                <button onclick="openModal('sale')" class="action-btn sale-btn">
+                    <span class="icon">💰</span>
+                    <span>Record Sale</span>
+                </button>
+            </div>
+
+            <!-- My Recent Logs -->
+            <div class="logs-section">
+                <h3>My Recent Logs</h3>
+                <div id="my-logs-list" class="logs-list">
+                    <p class="empty-state">No logs recorded today.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">Log Activity</h3>
+                    <button onclick="closeModal()" class="close-btn">&times;</button>
+                </div>
+                <form id="activity-form">
+                    <input type="hidden" id="activity-type">
+                    
+                    <div class="input-group">
+                        <label>Contact Name</label>
+                        <input type="text" id="contact-name" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Notes / Details</label>
+                        <textarea id="contact-notes" rows="3"></textarea>
+                    </div>
+
+                    <div class="location-display">
+                        <small>📍 GPS Lock: <span id="display-lat">--</span>, <span id="display-lng">--</span></small>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-block">Submit Log</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast">Log Saved Successfully</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
