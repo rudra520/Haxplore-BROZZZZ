@@ -47,3 +47,12 @@ We built a **lightweight web + WhatsApp-integrated system** that works on low-en
 ---
 
 ## 📂 Project Structure (from your files)
+
+├── server.js          # Express backend + API routes + WhatsApp webhook
+├── script.js          # Client-side logic (dashboard, forms, AJAX)
+├── index.html         # Main dashboard UI
+├── style.css          # Responsive, mobile-first styling
+├── occamy.db          # SQLite database (tasks, reports, users)
+├── package.json       # Dependencies (express, sqlite3, twilio, etc.)
+├── package-lock.json
+└── README.md          # This file
