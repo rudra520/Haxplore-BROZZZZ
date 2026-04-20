@@ -1,4 +1,4 @@
-# 🧭 Haxaplor – Codefest'25 @ IIT BHU
+Jo# 🧭 Haxaplor – Codefest'25 @ IIT BHU
 
 ## 🌾 Occamy: Streamlining Rural Field Operations in India
 
@@ -97,4 +97,4 @@ We built a **lightweight web + WhatsApp-integrated system** that works on low-en
 
 ---
 
-## 🔄 Data Flow Summary
+
