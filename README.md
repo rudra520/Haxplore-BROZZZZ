@@ -1,4 +1,4 @@
-Jo# 🧭 Haxaplor – Codefest'25 @ IIT BHU
+# 🧭 Haxaplor – Codefest'25 @ IIT BHU
 
 ## 🌾 Occamy: Streamlining Rural Field Operations in India
 
