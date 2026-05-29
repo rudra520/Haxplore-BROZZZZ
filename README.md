@@ -23,7 +23,9 @@ Rural field teams in India rely on **unstructured WhatsApp communication** – t
 
 ## 🚀 Our MVP Solution
 
-We built a **lightweight web + WhatsApp-integrated system** that works on low-end phones and spotty networks. The MVP (shown in `1000047663.png`) includes:
+We built a **lightweight web + WhatsApp-integrated system** that works on low-end phones and spotty networks.
+
+ The MVPincludes:
 
 - 📨 **WhatsApp message parser** – forward a message to our number, and it auto-creates a task/report  
 - 🗂️ **Task board** – assign, update, and track field tasks  
