@@ -30,9 +30,9 @@ Occamy: Streamlining rural field operations in India by migrating from unstructu
 
 ## 🛠️ Tech Stack
 *(Edit this section to match your actual tools)*
-* **Frontend:** React / Next.js / Vue (Mobile Responsive)
-* **Backend:** Node.js / Python / Go
+* **Frontend:** React / Next.js / 
+* **Backend:** Node.js / Python / 
 * **Database:** MongoDB / PostgreSQL / Firebase
-* **Geolocation:** Google Maps API / Leaflet
-* **Hosting:** Vercel / Heroku / AWS
+* **Geolocation:** API / Leaflet
+* **Hosting:** Vercel / AWS
 
