@@ -1,6 +1,6 @@
 # 🧭 Haxaplor – Codefest'25 @ IIT BHU
 
-## 🌾 Occamy: Streamlining Rural Field Operations in India
+## 🤖 Occamy: Streamlining Rural Field Operations in India
 
 **Team Name:** BROZZZZ  
 **Event:** Haxaplor, Codefest'25  
