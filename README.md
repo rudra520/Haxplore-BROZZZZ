@@ -6,7 +6,7 @@
 **Event:** Haxaplor, Codefest'25  
 **Institute:** Indian Institute of Technology (BHU) Varanasi
 
----
+--
 
 ## 📌 Problem Statement
 
