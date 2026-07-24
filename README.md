@@ -2,6 +2,7 @@
 
 ## 🤖 Occamy: Streamlining Rural Field Operations in India
 
+
 **Team Name:** BROZZZZ  
 **Event:** Haxaplor, Codefest'25  
 **Institute:** Indian Institute of Technology (BHU) Varanasi
