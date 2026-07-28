@@ -4,7 +4,7 @@
 
 
 **Team Name:** BROZZZZ  
-**Leader Name:** Rudra Pratap Singh 
+**Leader Name:** Rudra Pratap Singh
 **Event:** Haxaplor, Codefest'25  
 **Institute:** Indian Institute of Technology (BHU) Varanasi
 
